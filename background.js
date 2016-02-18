@@ -18,18 +18,17 @@ TenZeros.prototype = {
     var that = this;
     var req = new XMLHttpRequest();
     var query_url = that.api_url + "?q=" + query + "&cx=" + that.cx + "&num=10" + "&key=" + that.api_key;
-      req.open("GET", query_url, true);
-      req.onreadystatechange = function() {
-          if (req.readyState == 4) {
-            if (req.status == 200) {
-              var json_obj = JSON.parse(req.responseText);
-              json_obj.items.forEach(function(item){
-                chrome.tabs.create({url: item.link});
-              });
-            }
-          }
-        };
-      req.send();
+
+    req.open("GET", query_url, true);
+    req.onreadystatechange = function() {
+        if(req.readyState == 4 && req.status == 200){
+          var json_obj = JSON.parse(req.responseText);
+          json_obj.items.forEach(function(item){
+            chrome.tabs.create({url: item.link});
+          });
+        }
+      };
+    req.send();
   },
 
   onError: function(errorMsg) {
