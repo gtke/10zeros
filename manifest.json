@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+
+  "name": "10zeros",
+  "description": "This extension opens 10 tabs on google search",
+  "version": "1.0",
+  "background": {
+    "scripts": ["jquery-2.2.0.min.js", "background.js"]
+  },
+  "omnibox": {
+    "keyword": "10"
+  },
+  "content_scripts": [{
+    "matches": ["*://*.google.com/*"],
+    "js": ["content.js"]
+  }],
+  "browser_action": {
+    "default_icon": "10zeros.png",
+    "default_title": "10 tabs"
+  },
+  "permissions": [
+    "tabs"
+    ]
+
+}
