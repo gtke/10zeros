@@ -1,0 +1,19 @@
+{
+  "name": "10zeros",
+  "description" : "Open first 10 search results in new tabs.",
+  "version": "0.1",
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "browser_action":{
+    "default_title": "10zeros"
+  },
+  "icons": {},
+  "permissions": [
+    "tabs",
+    "unlimitedStorage",
+    "https://www.google.com/"
+  ],
+  "omnibox": { "keyword" : "ten" },
+  "manifest_version": 2
+}
